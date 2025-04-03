@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTLK | UK Underground Music Discovery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <h1>GTLK</h1>
+                <span class="tagline">UK Underground Music Discovery</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Discover</a></li>
+                    <li><a href="#">Artists</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="featured-section">
+                <h2>Featured Tracks</h2>
+                <div class="track-cards">
+                    <div class="track-card" id="track1Card">
+                        <div class="album-art">
+                            <img src="https://via.placeholder.com/300x300/1e1e1e/1db954?text=Track+1" alt="Track 1 Album Art">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="track-info">
+                            <h3>Track 1</h3>
+                            <p class="artist">Unknown Artist</p>
+                            <p class="genre">UK Underground</p>
+                        </div>
+                    </div>
+                    <div class="track-card" id="track2Card">
+                        <div class="album-art">
+                            <img src="https://via.placeholder.com/300x300/1e1e1e/1db954?text=Track+2" alt="Track 2 Album Art">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="track-info">
+                            <h3>Track 2</h3>
+                            <p class="artist">Unknown Artist</p>
+                            <p class="genre">UK Underground</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualizer-section">
+                <div class="visualizer-container">
+                    <div class="visualizer-header">
+                        <div id="trackName">Select a track to play</div>
+                        <div class="visualizer-controls">
+                            <button id="stopBtn" class="control-btn"><i class="fas fa-stop"></i></button>
+                            <div class="volume-control">
+                                <i class="fas fa-volume-up"></i>
+                                <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <canvas id="visualizer"></canvas>
+                    
+                    <div class="visualizer-footer">
+                        <div id="timeInfo">00:00 / 00:00</div>
+                        <div class="progress-container">
+                            <div id="progressBar"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="visualizer-options">
+                    <div class="option-group">
+                        <label>Visualization Style</label>
+                        <div class="option-buttons">
+                            <button id="barStyleBtn" class="option-btn active">Bars</button>
+                            <button id="waveStyleBtn" class="option-btn">Wave</button>
+                            <button id="circleStyleBtn" class="option-btn">Circle</button>
+                        </div>
+                    </div>
+                    <div class="option-group">
+                        <label>Color Theme</label>
+                        <div class="option-buttons">
+                            <button id="defaultThemeBtn" class="option-btn active">Default</button>
+                            <button id="neonThemeBtn" class="option-btn">Neon</button>
+                            <button id="retroThemeBtn" class="option-btn">Retro</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="discovery-section">
+                <h2>Discover More</h2>
+                <div class="genre-tags">
+                    <span class="tag">Grime</span>
+                    <span class="tag">Drill</span>
+                    <span class="tag">UK Garage</span>
+                    <span class="tag">Dubstep</span>
+                    <span class="tag">Jungle</span>
+                    <span class="tag">Drum & Bass</span>
+                    <span class="tag">UK Funky</span>
+                    <span class="tag">Bassline</span>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 GTLK - UK Underground Music Discovery</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-soundcloud"></i></a>
+                <a href="#"><i class="fab fa-spotify"></i></a>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 

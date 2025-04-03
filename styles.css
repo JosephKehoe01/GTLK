@@ -1,0 +1,408 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1db954;
+    --primary-hover: #1ed760;
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --card-bg: #1e1e1e;
+    --text-color: #ffffff;
+    --text-secondary: #b3b3b3;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+.tagline {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: -5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+    padding: 5px 0;
+    position: relative;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-color);
+}
+
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Main Content */
+main {
+    display: grid;
+    gap: 40px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Track Cards */
+.track-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.track-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    cursor: pointer;
+}
+
+.track-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.album-art {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+.track-card:hover .album-art img {
+    transform: scale(1.05);
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+}
+
+.play-overlay i {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.track-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.track-info {
+    padding: 15px;
+}
+
+.track-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.artist, .genre {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Visualizer Section */
+.visualizer-section {
+    display: grid;
+    gap: 20px;
+}
+
+.visualizer-container {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+}
+
+.visualizer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#trackName {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.visualizer-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+.control-btn:hover {
+    color: var(--primary-color);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#volumeSlider {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 4px;
+    background: var(--text-secondary);
+    border-radius: 2px;
+    outline: none;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#visualizer {
+    width: 100%;
+    height: calc(100% - 90px);
+    display: block;
+}
+
+.visualizer-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#timeInfo {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.progress-container {
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2.5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+    transition: width 0.1s linear;
+}
+
+/* Visualizer Options */
+.visualizer-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.option-group {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.option-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.option-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.option-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    font-size: 0.9rem;
+}
+
+.option-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.option-btn.active {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+/* Discovery Section */
+.discovery-section {
+    margin-top: 20px;
+}
+
+.genre-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.tag:hover {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: color var(--transition-speed);
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    nav ul {
+        gap: 15px;
+    }
+    
+    .visualizer-options {
+        flex-direction: column;
+    }
+    
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+} 
