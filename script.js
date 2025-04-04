@@ -415,4 +415,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial setup
     setupCanvas();
     setColorTheme('default');
+
+    const carousel = document.querySelector('.carousel');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        carouselItems.forEach((item, index) => {
+            const offset = (index - currentIndex) * 100; // Use percentage for smooth transition
+            item.style.transform = `translateX(${offset}%)`;
+        });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
+        updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+    });
+
+    updateCarousel(); // Initialize carousel position
 }); 

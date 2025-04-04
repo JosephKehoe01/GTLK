@@ -22,8 +22,7 @@ body {
     color: #fff; /* White text */
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: flex-start; /* Align items to the top */
+    flex-direction: column;
     align-items: center;
     text-align: center;
     margin: 0;
@@ -32,7 +31,7 @@ body {
 .app-container {
     max-width: 800px;
     padding: 20px;
-    margin-top: 20px; /* Add margin to ensure visibility */
+    margin-top: 20px;
 }
 
 /* Hero Section */
@@ -541,4 +540,77 @@ html, body {
 .logo img {
     position: relative;
     z-index: 10; /* Higher z-index to bring it forward */
+}
+
+.post {
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0; /* Remove padding to eliminate extra space */
+}
+
+.carousel-item {
+    min-width: 100%; /* Ensure each item takes full width */
+    transition: transform 0.5s ease;
+    margin: 0; /* Remove margin to prevent gaps */
+}
+
+.carousel-item img, .carousel-item video {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+/* Blog Section */
+.blog-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item img, .carousel-item video {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.carousel-controls button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.carousel-controls button:hover {
+    background-color: var(--primary-hover);
 } 
