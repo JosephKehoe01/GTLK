@@ -359,17 +359,20 @@ footer {
 
 .social-links {
     display: flex;
-    gap: 15px;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .social-links a {
     color: #fff; /* White text */
-    font-size: 1.5rem;
-    transition: color 0.3s;
+    font-size: 2rem; /* Increase font size */
+    transition: color 0.3s, transform 0.3s; /* Add transition for hover effects */
 }
 
 .social-links a:hover {
-    color: #000; /* Black on hover */
+    color: var(--primary-color); /* Use primary color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
 /* Responsive Design */
