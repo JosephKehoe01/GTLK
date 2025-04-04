@@ -5,7 +5,7 @@
 }
 
 :root {
-    --primary-color: #1db954;
+    --primary-color: #f01917; /* Updated with the exact red color code */
     --primary-hover: #1ed760;
     --dark-bg: #121212;
     --darker-bg: #0a0a0a;
@@ -613,4 +613,11 @@ html, body {
 
 .carousel-controls button:hover {
     background-color: var(--primary-hover);
+}
+
+.post-text {
+    padding: 10px;
+    color: var(--text-color);
+    text-align: left;
+    font-size: 1rem;
 } 
